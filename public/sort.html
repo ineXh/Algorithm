@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<head>
+	<!--<link rel="stylesheet" media="screen" href="css/bootstrap.min.css">-->
+	<link rel='stylesheet' type='text/css' href="css/styles.css" />
+	<nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="container">
+	    <a href="index.html">Home</a>
+	    <a href="#quickSortHead">QuickSort</a>
+	    <a href="#mergeSortHead">MergeSort</a>
+	    <a href="priorityQueue.html">PriorityQueue</a>
+
+	  </div>
+	</nav>
+</head>
+<body>
+	<table style="width:70%">
+	  <tr bgcolor="#EEEEEE">
+	    <th>Algorithm</th>
+	    <th>Worst-case running time</th>
+	    <th>Average-case/expected running time</th>
+	    <th>Best-case running time</th>
+	    <th>Worst-case space</th>
+	  </tr>
+	  <tr>
+	    <th>Insertion sort</th>
+	    <th>Θ(n^2)</th>
+	    <th>Θ(n^2)</th>
+	  </tr>
+	  <tr>
+	    <th>Merge sort</th>
+	    <th>Θ(n lg n)</th>
+	    <th>Θ(n lg n)</th>
+	  </tr>
+	  <tr>
+	    <th>Heapsort</th>
+	    <th>Θ(n lg n)</th>
+	    <th>-</th>
+	  </tr>
+	  <tr>
+	    <th>Quicksort</th>
+	    <th>Θ(n^2)</th>
+	    <th>Θ(n lg n) (expected)</th>
+	  </tr>
+	  <tr>
+	    <th>Counting sort</th>
+	    <th>Θ(k + n)</th>
+	    <th>Θ(k + n)</th>
+	  </tr>
+	  <tr>
+	    <th>Radix sort</th>
+	    <th>Θ(d(k + n))</th>
+	    <th>Θ(d(k + n))</th>
+	  </tr>
+	  <tr>
+	    <th>Bucket sort</th>
+	    <th>Θ(n^2)</th>
+	    <th>Θ(n) (average-case)</th>
+	    <th></th>
+	    <th>O(n+k)</th>
+	  </tr>
+	</table>
+
+	<h1>Bubble Sort</h1>
+	<p>n^2: iterate thru list and swapping elements with elements with their neighbors</p>
+
+	<h1>Heap Sort</h1>
+	<h1>Radix Sort</h1>
+	<p>Do count sort from least significant to most significant</p>
+	<p>O(d*(n+b)): b is base</p>
+	<div id='radixSort'></div>
+
+	<h1>Bucket Sort</h1>
+	<p>mainly useful when input is uniformly distributed over a range</p>
+	<p>split array of size n into k buckets, each housing a value range of n/k</p>
+	<p>each bucket such as insertion sort on small buckets (due to its low overhead), and merge sort or quicksort on larger buckets.</p>
+	<div id='bucketSort'></div>
+
+	<h1>Counting Sort</h1>
+	<p>Input data: 1, 4, 1, 2, 7, 5, 2<br>
+  1) Take a count array to store the count of each unique object.<br>
+  Index:     0  1  2  3  4  5  6  7  8  9<br>
+  Count:     0  2  2  0   1  1  0  1  0  0</p>
+  <p>2) Modify the count array such that each element at each index
+  stores the sum of previous counts. <br>
+  Index:     0  1  2  3  4  5  6  7  8  9<br>
+  Count:     0  2  4  4  5  6  6  7  7  7</p>
+
+	<h1 id='quickSortHead'>Quick Sort</h1>
+	<ol>
+		<li>shuffle</li>
+		<li>sort</li>
+		<ol>
+			<li>partition</li>
+			<ul>
+				<li>while true</li>
+				<li>v is partitioning item, start with a[lo]</li>
+				<li>scan left(stop when item is greater than v)</li>
+				<li>scan right(stop when item is smaller than v)</li>
+				<li>exchange left item with right item</li>
+				<li>break when left index reach right index</li>
+				<li>final exchange of v and j index item</li>
+			</ul>
+			<li>sort left</li>
+			<li>sort right</li>
+		</ol>
+	</ol>
+	<div id='quickSort'></div>
+
+	<h1>Selection Sort</h1>
+	<p>Compares: ~n2/2</p>
+	<p>Exchanges: n</p>
+	<div id='selectSort'></div>
+
+	<h1>Binary Insertion Sort</h1>
+	<div id='binarySort'></div>
+
+	<h1>InsertionSortX</h1>
+	<div id='insertSortX'></div>
+
+	<h1>InsertionSort</h1>
+	<p>n^2: iterate, insert element from back to front where its sorted</p>
+	<div id='insertSort'></div>
+
+	<h1 id='mergeSortHead'>MergeSort</h1>
+	<h2>Enter Array separated with comma:</h2>
+	<form id="form1">
+	  <div>
+	    <textarea id="inText"></textarea>
+	    <input type="submit">
+	  </div>
+	</form>
+	<div id='mergeSort'></div>
+
+	<h1>Bottom-Up MergeSort<h1>
+	<p>Worst case: NlogN</p>
+	<div id='bottomUpMergeSort'></div>
+
+	<script src="js/lib/jquery-1.10.2.js"></script>
+	<!--<script src="js/lib/bootstrap.min.js"></script>-->
+	<script src="js/lib/pixi.min.js"></script>
+	<script src="js/lib/createjs-2015.11.26.min.js"></script>
+	<script src="js/lib/pvector.js"></script>
+	<script src="js/global.js"></script>
+	<script src="js/Utils.js"></script>
+	<script src="js/Helper.js"></script>
+	<script src="js/Constants.js"></script>
+	<script src="js/Pool.js"></script>
+	<script src="js/UpdateQueue.js"></script>
+
+	<script src="js/BlockArray.js"></script>
+	<script src="js/Block.js"></script>
+
+	<script src="js/loadAssets.js"></script>
+	<script src="js/mergeSort.js"></script>
+	<script src="js/insertSort.js"></script>
+	<script src="js/insertSortX.js"></script>
+	<script src="js/BinaryInsertionSort.js"></script>
+	<script src="js/SelectionSort.js"></script>
+	<script src="js/QuickSort.js"></script>
+
+	<script src="js/radixSort.js"></script>
+
+	<script src="js/BucketSort.js"></script>
+	<script src="js/canvasSetup.js"></script>
+	<script src="js/mainSort.js"></script>
+
+</body>
+</html>

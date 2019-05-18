@@ -20,6 +20,7 @@ function getMouse(event, touchobj){
 	}
   mousePos.raw_x = mousePos.x;
   mousePos.raw_y = mousePos.y;
+  if(stage == undefined) return;
   mousePos.x = mousePos.x / stage.scale.x;
   mousePos.y = mousePos.y / stage.scale.y;
 	mousePos.x_pct = mousePos.x / width;
@@ -667,3 +668,12 @@ var array_insert_before = function(arr, item1, item2){
       }
   }
 } // end array_insert_before
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
+}

@@ -3,7 +3,7 @@ function Pool() {
 }
 Pool.prototype = {
     loadPool: function(){
-        this.createBlocks(20);
+        this.createBlocks(200);
     },
     createBlocks: function(amount){
         this.blocks = [];

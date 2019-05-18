@@ -1,4 +1,12 @@
 (function(){
+    radixSortRenderer = new PIXI.WebGLRenderer(800, 200, {backgroundColor : 0x59b4ff, transparent : false, antialias: false});
+    $( "#radixSort" )[0].appendChild(radixSortRenderer.view);
+    radixSortStage = new PIXI.Container();
+
+    bucketSortRenderer = new PIXI.WebGLRenderer(800, 200, {backgroundColor : 0x59b4ff, transparent : false, antialias: false});
+    $( "#bucketSort" )[0].appendChild(bucketSortRenderer.view);
+    bucketSortStage = new PIXI.Container();
+
     quickSortRenderer = new PIXI.WebGLRenderer(800, 200, {backgroundColor : 0x59b4ff, transparent : false, antialias: false});
     $( "#quickSort" )[0].appendChild(quickSortRenderer.view);
     quickSortStage = new PIXI.Container();
@@ -22,15 +30,17 @@
 	mergeSortRenderer = new PIXI.WebGLRenderer(800, 200, {backgroundColor : 0x59b4ff, transparent : false, antialias: false});
     $( "#mergeSort" )[0].appendChild(mergeSortRenderer.view);
     mergeSortStage = new PIXI.Container();
+    mergeSortStage.parent = mergeSortRenderer;
 
     bottomUpMergeSortRenderer = new PIXI.WebGLRenderer(800, 200, {backgroundColor : 0x59b4ff, transparent : false, antialias: false});
     $( "#bottomUpMergeSort" )[0].appendChild(bottomUpMergeSortRenderer.view);
     bottomUpMergeSortStage = new PIXI.Container();
+    bottomUpMergeSortStage.parent = bottomUpMergeSortRenderer;
 
     var initialize = function(load, res){
         loader = load;
         resources = res;
-
+        
         pool = new Pool();
         updateQueue = new UpdateQueue();
         createjs.MotionGuidePlugin.install();
@@ -52,7 +62,7 @@
         binaryInsertion = new BinaryInsertion();
 
         canvasBinaryInsertSortSetup();
-
+        
         arrayblocks6 = new BlockArray();
         selection = new SelectionSort();
 
@@ -62,6 +72,16 @@
         quickSort = new QuickSort();
 
         canvasQuickSortSetup();
+
+        arrayblocks8 = new BlockArray();
+        radixSort = new RadixSort();
+
+        canvasRadixSortSetup();
+
+        arrayblocks9 = new BlockArray();
+        bucketSort = new BucketSort();
+
+        canvasBucketSortSetup();
 
         animate();
     } // end initialize
@@ -75,6 +95,8 @@
     function animate() {
         update();
         requestAnimationFrame(animate);
+        bucketSortRenderer.render(bucketSortStage);
+        radixSortRenderer.render(radixSortStage);
         quickSortRenderer.render(quickSortStage);
         selectSortRenderer.render(selectSortStage);
         binarySortRenderer.render(binarySortStage);
@@ -84,6 +106,6 @@
         bottomUpMergeSortRenderer.render(bottomUpMergeSortStage);
     } // end animate
 
-
+    
 })(); // end main
 

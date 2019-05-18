@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<head>
+	<div class="container">
+	    <a href="index.html">Home</a>
+	    <a href="sort.html">Sort</a>
+	</div>
+</head>
+<body>
+	<ol><h2>Priority Queue</h2></ol>
+	<li>characterized by the remove the maximum and insert operations</li>
+	<br>
+	<li>Bottom-up reheapify (swim): If the heap order is violated because a node's key becomes larger than that node's parents key, fix by exchanging the node with its parent.</li>
+
+	<li>Top-down heapify (sink):  a node's key becomes smaller than one or both of that node's children's keys, fix by exchanging the node with the larger of its two children</li>
+
+	<li>Insert: add key to bottom (end of array) and swim up</li>
+	<li>Remove max: exchange bottom children (end of array) with root, remove new bottom children (max), sink new root down</li>
+
+	<ol><h2>Heapsort</h2></ol>
+	<li>insert all the keys to be sorted into a minimum-oriented priority queue, then repeatedly use remove the minimum to remove them all in order</li>
+
+	<a href="http://algs4.cs.princeton.edu/24pq/">http://algs4.cs.princeton.edu/24pq/</a>
+</body>
+</html>

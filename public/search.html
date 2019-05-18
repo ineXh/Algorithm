@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<head>
+	<link rel='stylesheet' type='text/css' href="css/styles.css" />
+	<a href="index.html">Home</a>
+	<a href="hash.html">Hash</a>
+</head>
+<body>
+	<h1>Dijkstra</h1>
+	<a href="https://en.wikipedia.org/wiki/Dijkstra's_algorithm">Wiki</a>
+	<h1>Depth-First Search</h1>
+	<p></p>
+	<div id='dfsearch'></div>
+
+	<h1>Breadth-First Search</h1>
+	<p></p>
+	<div id='bfsearch'></div>
+
+
+
+	<h1>Binary Search Tree</h1>
+	<div id='binarysearch'></div>
+
+	<p>A BST is a binary tree in symmetric order</p>
+	<p>binary tree is either: empty, two disjoint binary tree(left and right)</p>
+	<p>Symmetric order: each node has a key and every node's key is larger than all keys in its left subtree, and smaller than all keys in its right subtree</p>
+	<p>Different from heap where it has every node larger than both its children</p>
+		<ul>Get/Search cost: Number of compares = 1 + depth of node</ul>
+		<ul>Put/Insert cost: Number of compares = 1 + depth of node</ul>
+		<ul>Tree shape depends on order of insertion</ul>
+
+		<p>A BST is uniquely defined by its level-order traversal, a breadth-first traversal where the root is visited first, then all nodes at depth 1 (going from left to right), then all nodes at depth 2(going from left to right), and so forth</p>
+
+	<table style="width:90%">
+	  <tr>
+	    <th rowspan="2">implementation</th>
+	    <th colspan="2">guarantee</th>
+	    <th colspan="2">average case</th>
+	    <th rowspan="2">ordered ops?</th>
+	    <th rowspan="2">operations on keys</th>
+	  </tr>
+	  <tr>
+	  	<th>search</th>
+	  	<th>insert</th>
+	  	<th>search hit</th>
+	  	<th>insert</th>
+	  </tr>
+	  <tr>
+	    <td>sequential search (unordered list)</td>
+	    <td>N</td> 
+	    <td>N</td>
+	    <td>N/2</td>
+	    <td>N</td>
+	    <td>no</td>
+	    <td>equals()</td>
+	  </tr>
+	  <tr>
+	    <td>binary search (ordered array)</td>
+	    <td>lg N</td> 
+	    <td>N</td>
+	    <td>lg N</td>
+	    <td>N/2</td>
+	    <td>yes</td>
+	    <td>compareTo()</td>
+	  </tr>
+	  <tr>
+	    <td>BST</td>
+	    <td>N</td> 
+	    <td>N</td>
+	    <td>1.39 lg N</td>
+	    <td>1.39 lg N</td>
+	    <td></td>
+	    <td>compareTo()</td>
+	  </tr>
+	</table>
+
+	<h1>Balanced Search trees</h1>
+	<ul>AVL Tree</ul>
+	<ul>2-3 Tree</ul>
+	<ul>Red-Black BSTs</ul>
+	<ul>B-Trees</ul>
+
+	<h1>2-3 Tree</h1>
+	<p>1 or 2 keys per node</p>
+	<ol>2-node: one key, 2 children
+		<ul>left - children with smaller keys</ul>
+		<ul>right - children with bigger keys</ul>
+	</ol>
+	<ol>3-node: two keys, 3 children
+		<ul>left - children with smaller keys</ul>
+		<ul>between - children with keys between 2 keys</ul>
+		<ul>right - children with bigger keys</ul>
+	</ol>
+
+	<p>perfect balance: every path from root to null link has same length</p>
+	<p>symmetric order: inorder traversal yields keys in ascending order</p>
+
+	<h1>Red-Black BST</h1>
+	<h2>Left-leaning red-black BSTs</h2>
+	<p>represents a 2-3 tree as a BST, where 3 nodes are 2 key is split, between them is red</p>
+	<p>most operation i.e. search is identical to BST</p>
+	<ol>
+		<ul>No node has 2 red links connected</ul>
+		<ul>Every path from root to null link has the same number of black links</ul>
+		<ul>Red Links lean left</ul>
+	</ol>
+
+	<h1>Summary</h1>
+	<p>BST becomes unsymmetrical after insert and delete because</p>
+	<p>hilbert deletion finds successor from the right, eventually goes to sqrt N, instead of log N</p>
+	<p>2-3 tree insert always symmetrical, left leaning black red tree is like a 2-3 tree which keeps it symmetrical</p>
+
+	<script src="js/lib/jquery-1.10.2.js"></script>
+	<script src="js/lib/pixi.min.js"></script>
+	<script src="js/lib/createjs-2015.11.26.min.js"></script>
+	<script src="js/lib/pvector.js"></script>
+	<script src="js/global.js"></script>
+	<script src="js/Utils.js"></script>
+	<script src="js/Helper.js"></script>
+	<script src="js/Constants.js"></script>
+	<script src="js/Pool.js"></script>
+	<script src="js/UpdateQueue.js"></script>
+	
+	<script src="js/BlockArray.js"></script>
+	<script src="js/Block.js"></script>
+
+
+	<script src="js/loadAssets.js"></script>
+	<script src="js/Tree.js"></script>
+	<script src="js/TreeNode.js"></script>
+	<script src="js/BinarySearchTree.js"></script>
+	<script src="js/RedBlackBST.js"></script>
+	
+	<script src="js/canvasSetup.js"></script>
+	<script src="js/mainSearch.js"></script>
+
+</body>
+
+</html>
